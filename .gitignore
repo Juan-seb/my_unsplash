@@ -2,4 +2,4 @@
 /client/env.locale
 /client/env.production
 /server/node_modules
-/server/env
+/server/.env
