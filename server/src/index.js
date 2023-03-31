@@ -43,11 +43,14 @@ const resolvers = {
     },
     deleteImage: async (root, args) => {
       const { password, url } = args
-
+      console.log(password, url)
       if (password !== process.env.PASSWORD) throw new AuthenticationError('Invalid password')
 
       try {
-        return await Image.deleteOne({ url })
+        console.log(url)
+        const res = await Image.findOneAndRemove({ url })
+        console.log(res)
+        return res
       } catch (error) {
         console.log(error)
       }
